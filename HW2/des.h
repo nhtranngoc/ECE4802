@@ -1,10 +1,11 @@
 #ifndef DES_H
 #define DES_H
 
-void expand(char in[], char out[]); //Expand 32 to 48 bits
-void printa(char a[], int size, int line_s); // Print array
+void expand(char in[], char out[]); 
+void printa(char a[], int size, int line_s);
 void xor(char c[], const char k[]);
 void sbox(char in[], char out[]);
+void permute(char in[], char out[]);
 
 #ifndef DES_SOURCE
 const char EXPAND_T[48] = {
@@ -80,10 +81,18 @@ const char SB[8][64] = {
 	}
 };
 
+const char PERMUTE_T[32] = {
+	16, 7 , 20, 21, 29, 12, 28, 17,
+	1 , 15, 23, 26, 5 , 18, 31, 10,	
+	2 , 8 , 24, 14, 32, 27, 3 , 9 ,
+	19, 13, 30, 6 , 22, 11, 4 , 25
+};
+
 #else
 extern const char EXPAND_T[48];
 extern const char ROUND_K[48]; 
 extern const char SB[8][64];
+extern const char PERMUTE_T[32];
 #endif
 
 

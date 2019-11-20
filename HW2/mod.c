@@ -17,10 +17,10 @@ int main() {
 	int Z[3] = {44, 56, 96};
 
 	for(int i = 0; i < 3; ++i) {
-		printf("\nFor Z%d, these elements don't have an inverse: ", Z[i]);
+		printf("\nElements without inverse in Z%d: ", Z[i]);
 		for(int j = 0; j < Z[i]; ++j) {
 			if(m_inverse(j,Z[i]) == -1) {
-				printf("%d ", j);
+				printf("%d, ", j);
 			}
 		}
 		printf("\n");
